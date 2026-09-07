@@ -7,7 +7,7 @@ description: Refresh your memory from your connected tools. Pulls new facts (new
 
 Refresh the memory files with the latest context from the user's connected tools. This is deliberate and heavier than the passive `memory-keeper` capture; run it deliberately, not on every turn.
 
-Memory lives in the `memory/` folder next to CLAUDE.md. Read `memory/day-to-day.md` for which tools are connected.
+Memory lives in the `memory/` folder next to `AGENTS.md`. Read `memory/day-to-day.md` for which tools are connected.
 
 ## Step 0 - Back up first (non-negotiable)
 Before reading or writing anything, snapshot the memory folder so any bad edit is fully reversible.
@@ -22,7 +22,7 @@ else
   exit 0
 fi
 ```
-If the backup fails, STOP. Do not proceed to any write. (`/setup` records the exact paths; substitute them here.)
+If the backup fails, STOP. Do not proceed to any write. (`$pm-copilot-setup` records the exact paths; substitute them here.)
 
 ## Step 1 - Pull fresh context (read-only)
 Run in parallel; use only tools that are actually connected (`memory/day-to-day.md`):

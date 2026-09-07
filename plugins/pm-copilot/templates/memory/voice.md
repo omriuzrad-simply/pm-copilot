@@ -1,6 +1,6 @@
 # Voice
 
-How you write, so anything Claude drafts for you sounds like you and not like AI. The defaults in CLAUDE.md apply unless you change them here.
+How you write, so anything Codex drafts for you sounds like you and not like AI. The defaults in `AGENTS.md` apply unless you change them here.
 
 - **General tone:** (e.g. direct and concise, warm and detailed, formal, casual)
 - **Length bias:** (e.g. shorter is always better; or fuller context preferred)
@@ -18,7 +18,7 @@ Your voice probably shifts by context. Note any that matter:
 - **Executive / up-the-chain:**
 
 ## Samples
-Paste a few real things you've written (a message, an email, a short doc). Claude learns more from three real samples than from any description.
+Paste a few real things you've written (a message, an email, a short doc). Codex learns more from three real samples than from any description.
 
 ## Changelog
 - [YYYY-MM-DD] Created at setup.

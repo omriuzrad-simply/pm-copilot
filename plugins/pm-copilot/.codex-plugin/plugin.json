@@ -1,0 +1,39 @@
+{
+  "name": "pm-copilot",
+  "version": "0.2.0",
+  "description": "A personal PM operating system that learns your context and runs morning briefs, weekly prep, open-loop reviews, and self-improvement passes.",
+  "author": {
+    "name": "Daniel Blum",
+    "email": "itsdanielsagent@gmail.com",
+    "url": "https://github.com/IamBlum"
+  },
+  "homepage": "https://github.com/omriuzrad-simply/pm-copilot",
+  "repository": "https://github.com/omriuzrad-simply/pm-copilot",
+  "license": "MIT",
+  "keywords": [
+    "product-management",
+    "pm",
+    "productivity",
+    "planning",
+    "memory"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PM Co-Pilot",
+    "shortDescription": "Context-aware planning and follow-through for product managers.",
+    "longDescription": "PM Co-Pilot keeps a local, user-approved memory of your role, people, priorities, decisions, and writing voice. Its skills turn connected work sources into guided morning briefs, weekly planning, open-loop reviews, memory maintenance, and system improvement.",
+    "developerName": "Daniel Blum",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/omriuzrad-simply/pm-copilot",
+    "defaultPrompt": [
+      "Run my morning brief",
+      "Help me prepare for this week",
+      "Find my open loops"
+    ],
+    "brandColor": "#2563EB"
+  }
+}

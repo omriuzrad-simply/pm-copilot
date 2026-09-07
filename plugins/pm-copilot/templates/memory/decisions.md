@@ -1,6 +1,6 @@
 # Decisions
 
-An append-only log of decisions worth remembering, so Claude does not re-litigate settled questions and can remind you why you chose what you chose.
+An append-only log of decisions worth remembering, so Codex does not re-litigate settled questions and can remind you why you chose what you chose.
 
 Add an entry whenever you decide something durable. The self-improvement workflow also proposes entries from your week.
 

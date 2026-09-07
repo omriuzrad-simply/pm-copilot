@@ -1,92 +1,87 @@
-# PM Co-Pilot
+# PM Co-Pilot for Codex
 
-> 🎙️ **Featured on How I AI with Claire Vo** — [Watch](https://www.youtube.com/watch?v=p2qmX6TM0kw) · [Listen](https://open.spotify.com/episode/75Adi3KXzDDXIZEJmnv6N6) · [Read](https://www.lennysnewsletter.com/p/how-i-turned-claude-into-a-self-improving)
+PM Co-Pilot is a local, context-aware operating system for product managers. It keeps user-approved memory about your role, people, priorities, decisions, and writing voice, then turns connected work sources into guided workflows.
 
-Being a PM means holding fifty things in your head at once. Tasks pile up across email, chat, and meetings and keep reshuffling while you're stuck in back-to-back calls. The real work, talking to users and digging into the data, gets squeezed out.
+This fork ports the original PM Co-Pilot workflows to the Codex plugin format.
 
-PM Co-Pilot carries that overhead so you can get back to it. It catches what comes at you, keeps it organized, and surfaces what actually needs you.
+## Included workflows
 
-It runs inside Claude Cowork, and works in Claude Code too.
+- `morning-brief`, a daily capture, inbox cleanup, close-check, and meeting-prep pass
+- `weekly-prep`, a guided review that updates the task board only after approval
+- `open-loops`, a digest of work waiting on you and work waiting on others
+- `self-improvement`, a weekly review of voice signals, repeatable workflows, and system friction
+- `memory-keeper`, a propose-only memory capture and context-gap workflow
+- `sync`, a propose-only refresh from connected tools
+- `consolidate`, a propose-only cleanup and backup pass for local memory
+- `pm-copilot-setup`, the first-time workspace setup workflow
+- `pm-copilot-first-run`, a safe calibration run for all four daily workflows
 
 ## How it works
 
-You give it context up front: your role, your people, your priorities, how you like to work. After that it keeps that memory up to date as you go, and fills its own gaps instead of waiting for you to spell everything out.
+Setup creates two parts in the workspace you confirm:
 
-The more you give it, the more it can do. Dump in a lot of context early (dictating with a transcription tool is the fastest way), connect more of your tools, and run more of your work through it.
+- `AGENTS.md`, the Codex instruction file that routes each request to the right memory files
+- `memory/`, a local folder for role, colleagues, scope, tools, voice, decisions, and recurring topics
 
-Four workflows handle the day-to-day, and they build on each other:
+The workflows read local memory and any tools listed in `memory/day-to-day.md`. Missing tools are skipped. External actions are never taken without the user's approval.
 
-- **Weekly prep** starts your week. It pulls from your tools and walks you through setting your priorities and your focus.
-- **Morning brief** refreshes that each morning: what came in, what's done, what today needs.
-- **Open loops** catches the threads you'd otherwise lose, what you're waiting on and who's waiting on you.
-- **Self-improvement** closes the week by learning from how you worked and improving your setup for the next one.
+## Install from GitHub
 
-It checks with you before doing anything, and its memory of you stays on your machine.
+Add this repository as a Codex marketplace:
 
-## What's included
-
-Setup writes two things into your workspace: a **`CLAUDE.md`** routing brain that loads the right memory by topic, and a **`memory/`** folder for your role, people, priorities, decisions, and voice. It keeps that memory current as you work.
-
-**Skills (7)**
-
-- The four workflows above: morning-brief, weekly-prep, open-loops, self-improvement.
-- memory-keeper, sync, and consolidate, which keep your memory captured, refreshed, and tidy.
-
-**Commands (2)**
-
-- `/pm-copilot:setup` and `/pm-copilot:first-run`.
-
-> **Already use a `CLAUDE.md`?** This creates its own. Point setup at a fresh folder, or have Claude help you merge it into what you've got, so it works alongside your setup instead of replacing it.
-
-## What you need
-
-- **Claude Cowork or Claude Code.**
-- **Your tools connected.** Hook up whatever you already use through Claude's connectors or your own MCP servers, and it works with them. Connect a couple now, add more whenever.
-
-## Get it
-
-Install it once, then open a new chat and it walks you through the rest.
-
-> ⚠️ **Install by URL, not by downloading the ZIP.** This repo is a Claude plugin *marketplace* (the plugin itself lives in `plugins/pm-copilot/`), so a downloaded ZIP won't install as a plugin. Add it as a marketplace using the steps below and it's one click.
-
-**In Claude Cowork**
-
-1. Go to **Customize > Plugins > Add marketplace** and paste this repo's link.
-2. Find **PM Co-Pilot** and click **Install**.
-3. Open a new chat and run **`/pm-copilot:setup`**. Answer a few questions (skip any you want) and it sets itself up.
-4. Run **`/pm-copilot:first-run`** to see it work once, so you can fix anything that's off.
-
-**In Claude Code**
-
-Run:
-
-```
-/plugin marketplace add IamBlum/pm-copilot
-/plugin install pm-copilot@pm-copilot
+```bash
+codex plugin marketplace add omriuzrad-simply/pm-copilot
 ```
 
-Then run **`/pm-copilot:setup`**, followed by **`/pm-copilot:first-run`**.
+Then install `PM Co-Pilot` from the marketplace in the Codex app, or use the plugin browser in your Codex environment.
 
-## Running it
+From a new Codex session, run:
 
-Open a new chat and run a workflow whenever you want it: `morning-brief` each morning, `weekly-prep` at the start of your week, `open-loops` and `self-improvement` for a periodic sweep, and `sync` then `consolidate` to refresh your memory every couple of weeks.
+```text
+$pm-copilot-setup
+```
 
-**Why you run them yourself.** While testing this I noticed Claude seems to run scheduled tasks in the cloud, where they can't reach your local memory. So for now you run the workflows yourself, in a normal chat on your machine. Once local files and cloud runs connect again, scheduling should just work.
+After setup, run:
 
-## Feedback
+```text
+$pm-copilot-first-run
+```
 
-Tried it and have thoughts, or hit a snag? Email me at [itsdanielsagent@gmail.com](mailto:itsdanielsagent@gmail.com).
+## Connect your tools
+
+PM Co-Pilot is provider-neutral. Connect the services you already use through Codex plugins or MCP, then record the available tools in `memory/day-to-day.md` during setup.
+
+Useful sources include:
+
+- Chat or messaging
+- Email
+- Calendar
+- Task tracker
+- Meeting notes or transcripts
+- Documents and project references
+
+The skills only use sources that are available and named in your local memory.
+
+## Local development
+
+The plugin lives in `plugins/pm-copilot/`.
+
+The repository also includes a repo-local marketplace at `.agents/plugins/marketplace.json`. To test a local checkout:
+
+```bash
+codex plugin marketplace add ./
+```
+
+Validate the plugin manifest and skill layout with the bundled Codex plugin validator:
+
+```bash
+python3 /root/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/pm-copilot
+```
+
+## Credits
+
+The workflows are adapted from the original [PM Co-Pilot project](https://github.com/IamBlum/pm-copilot), created by Daniel Blum.
 
 ## License
 
 MIT.
-
-## Working on it (development)
-
-Want to hack on it or contribute?
-
-1. Clone it: `git clone https://github.com/IamBlum/pm-copilot.git`
-2. The plugin lives in `plugins/pm-copilot/` — its commands, skills, hooks, and memory templates. Edit there.
-3. To test your changes, point a marketplace at your local clone in Claude Code: `/plugin marketplace add <path-to-your-clone>`, then `/plugin install pm-copilot@pm-copilot` and reload.
-
-PRs welcome.

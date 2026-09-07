@@ -1,10 +1,10 @@
-# CLAUDE.md - Your PM Co-Pilot
+# AGENTS.md - Your PM Co-Pilot
 
-> Read this file at the start of every conversation. Scan the first message, load the relevant memory files silently, then respond with full context applied.
+> Codex reads this file before doing work. Scan the user's message, load the relevant memory files silently, then respond with full context applied.
 
-This is the routing brain. It does not contain facts about you. It tells Claude how to work with you and where to find what it needs. Your actual context lives in the `memory/` folder next to this file, which you fill in during `/setup` and which grows over time.
+This is the routing brain. It does not contain facts about you. It tells Codex how to work with you and where to find what it needs. Your actual context lives in the `memory/` folder next to this file, which you fill in during `$pm-copilot-setup` and which grows over time.
 
-If a memory file named below does not exist yet, that is fine. Run `/pm-copilot:setup` to create the scaffold.
+If a memory file named below does not exist yet, that is fine. Run `$pm-copilot-setup` to create the scaffold.
 
 ---
 
@@ -37,9 +37,9 @@ When in doubt: plain prose, no garnish.
 
 ---
 
-## Your tools (filled in at setup - see `memory/day-to-day.md`)
+## Your tools (filled in at setup, see `memory/day-to-day.md`)
 
-This system is tool-agnostic. During `/setup` you tell it which tools you actually use, and it wires the workflows to those. It records them in `memory/day-to-day.md`, for example:
+This system is tool-agnostic. During `$pm-copilot-setup` you tell it which tools you actually use, and it wires the workflows to those. It records them in `memory/day-to-day.md`, for example:
 
 - Chat / messaging tool
 - Task tracker (the "board")
@@ -91,11 +91,11 @@ As your work develops, add topic files under `memory/topics/` and add a routing 
 
 ## The workflows
 
-Run each by opening a new chat and naming it. A simple rhythm: morning brief daily, weekly prep at the start of your week, open loops and self-improvement for a periodic sweep, sync then consolidate to refresh memory. Run them in a normal chat so they execute on your machine with access to this memory folder. Claude's scheduled tasks currently run in the cloud and cannot see local files, so run these yourself for now.
+Run each by invoking its skill in Codex. A simple rhythm: morning brief daily, weekly prep at the start of your week, open loops and self-improvement for a periodic sweep, sync then consolidate to refresh memory. Run them from the workspace containing this file so they can access the local memory folder. Scheduled runs may not be able to access local memory, so run these yourself for now.
 
 - **Morning brief** - daily capture, inbox clean, close-check on open items, meeting prep or recap.
 - **Weekly prep** - a guided start-of-week review that sets your priorities.
 - **Open loops** - a twice-weekly digest of threads waiting on you and threads you are waiting on.
 - **Self-improvement** - a weekly pass that keeps your memory current and proposes improvements to the system itself from your own friction.
 
-All output surfaces in your Claude session by default. Nothing is sent anywhere on your behalf without your say-so.
+All output surfaces in your Codex session by default. Nothing is sent anywhere on your behalf without your say-so.

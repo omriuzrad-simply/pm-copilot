@@ -1,6 +1,6 @@
 ---
 name: weekly-prep
-description: Your guided start-of-week review. Pulls from your connected tools, reasons about what matters most this week, and walks you through a form-driven review one section at a time, then updates your task board. Writes are held to the end. Run it in a new chat whenever you want.
+description: Your guided start-of-week review. Pulls from your connected tools, reasons about what matters most this week, and walks you through a conversational review one section at a time, then updates your task board. Writes are held to the end. Run it whenever you want.
 ---
 
 ## FORMATTING - lists, never paragraphs (always)
@@ -43,15 +43,15 @@ Classify by meeting NATURE, not calendar proximity. A kickoff the user is organi
 Look at This Week and Inbox activity and identify which 2 to 4 initiatives have the most or most urgent activity this week. Prefer initiatives that already exist; only propose a brand-new one if a genuinely new standing initiative has emerged. Plan to mark the top ~3 active and the rest dormant (apply at the end). Draft a fresh one-line "why now" per active initiative, grounded in this week's signal. Link any new This Week task that clearly belongs to an initiative.
 
 ## Step 3 - Prepare the guided review (do not dump everything at once)
-After gathering everything, do NOT write a single long proposal. Run a GUIDED REVIEW: walk the user through the week ONE SECTION AT A TIME, each its own short turn built around an AskUserQuestion form. This is a hard requirement.
+After gathering everything, do NOT write a single long proposal. Run a GUIDED REVIEW: walk the user through the week ONE SECTION AT A TIME, each its own short turn with a concise conversational choice prompt. This is a hard requirement.
 
 Global rules for every stage:
 - Lead with the decision. No process narration, no recap of how you gathered the data.
 - Per item, show at most the proposed action plus a one-line why.
 - Only surface a section if it needs a decision. If nothing to decide, collapse it to a single sentence and move on.
-- Prefer AskUserQuestion forms over prose. multiSelect when several same-type items each need an independent keep/drop/promote call; single-select for genuine either/or calls. Put the recommended option first.
+- Prefer concise numbered choices over long prose. When several same-type items each need an independent keep/drop/promote call, let the user answer each item separately. Use a single choice for genuine either/or decisions, and put the recommended option first.
 - HOLD ALL WRITES to the end. Do not touch the board or config until the whole walkthrough is done. Collect every answer, then apply once in Step 5.
-- Keep framing text between forms to 1 to 3 lines.
+- Keep framing text between choice prompts to 1 to 3 lines.
 
 Fixed stage order: Snapshot, Standing initiatives, This Week, Inbox, Meeting prep.
 
@@ -59,10 +59,10 @@ Fixed stage order: Snapshot, Standing initiatives, This Week, Inbox, Meeting pre
 Separate turns. Wait for each answer before the next; carry answers forward.
 
 - **Stage 1 - Snapshot + clarifications.** One or two lines on the shape of the week (open This Week count, meetings needing a call, real decisions in this review). Ask only genuinely blocking questions here. If nothing blocks, say so and move on.
-- **Stage 2 - Standing initiatives.** Present the proposed active set, each with its one-line "why now." Form: confirm / swap / mark a different one active / propose new.
-- **Stage 3 - This Week.** Present CHANGES only: adds from Inbox that passed the cross-check and granularity filter, done-items to archive, reprioritizations, plus the stale/bulk-drop list. One-line "keeping the other N as-is." multiSelect form.
+- **Stage 2 - Standing initiatives.** Present the proposed active set, each with its one-line "why now." Ask for confirm / swap / mark a different one active / propose new.
+- **Stage 3 - This Week.** Present CHANGES only: adds from Inbox that passed the cross-check and granularity filter, done-items to archive, reprioritizations, plus the stale/bulk-drop list. One-line "keeping the other N as-is." Ask for a keep, archive, reprioritize, or drop decision for each changed item.
 - **Stage 4 - Inbox.** Only items needing a call (promote/leave/drop), each with a one-line why and the evidence if it looks resolved. Skip in one line if nothing actionable.
-- **Stage 5 - Meeting prep.** The tier plan: Tier 1 candidates (confirm-gated, one-line "why Tier 1 by nature"), Tier 2 (day-before reminder), Tier 3 listed in one line. Form: confirm which Tier 1 prep tasks to create and set the tier for any new recurring meeting.
+- **Stage 5 - Meeting prep.** The tier plan: Tier 1 candidates (confirm-gated, one-line "why Tier 1 by nature"), Tier 2 (day-before reminder), Tier 3 listed in one line. Ask which Tier 1 prep tasks to create and set the tier for any new recurring meeting.
 
 After the last stage, give a short recap of everything confirmed, then apply in Step 5.
 

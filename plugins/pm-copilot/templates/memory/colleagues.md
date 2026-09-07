@@ -1,6 +1,6 @@
 # Colleagues
 
-The people you work with, so Claude knows who is who without asking every time. Add people as they come up; you do not need to fill this all at once.
+The people you work with, so Codex knows who is who without asking every time. Add people as they come up; you do not need to fill this all at once.
 
 For each person worth remembering:
 
